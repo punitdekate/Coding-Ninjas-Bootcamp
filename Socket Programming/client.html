@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatter App</title>
+</head>
+
+<body>
+    <div>
+        <ul id="message-container">
+
+        </ul>
+    </div>
+    <input type="text" id='input-message'>
+    <button id="send-button">Send</button>
+    <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+
+    <script>
+        const socket = io.connect("http://localhost:4000");
+        const name = prompt("Your name");
+        socket.emit('join', name);
+        const messageContainer = document.getElementById('message-container');
+        const sendButton = document.getElementById('send-button');
+        const inputMessage = document.getElementById('input-message');
+        sendButton.addEventListener('click', () => {
+            const message = inputMessage.value;
+            if (message) {
+                socket.emit('new_message', message);
+                const addMessage = document.createElement('li');
+                addMessage.innerText = name + " : " + message
+                messageContainer.appendChild(addMessage);
+                inputMessage.value = '';
+            }
+
+        });
+        socket.on('broadcast_message', (userMessage) => {
+            console.log(userMessage);
+            const addMessage = document.createElement('li');
+            addMessage.innerText = userMessage.userName + " : " + userMessage.userMessage;
+            messageContainer.appendChild(addMessage);
+            inputMessage.value = '';
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+body{
+    padding : 0px;
+    margin:  0px;
+}
+
+.main{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3%;
+    
+}
+
+.movie-card{
+    width: 70%;
+    min-width: 600px;
+    height : auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid rgb(181, 219, 250);
+    border-radius: 4px;
+    flex-wrap: nowrap;
+}
+
+.movie-card .left{
+    width : 30%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.movie-card .left img{
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+.movie-card .right{
+    width: 67%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    color : blue;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+.plot{
+    color: gray;
+}
+
+.price {
+    color : rgb(252, 53, 18);
+    margin-top: 3px;
+    font-size: larger;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+
+.rating{
+    /* padding: 5px; */
+    font-size: larger;
+}
+
+.rating{
+    color : blue
+}
+
+.stars img{
+    width : 20px;
+    padding: 4px;
+}
+
+.counter{
+    font-size: larger;
+}
+
+
+
+
+.footer .buttons button{
+    font-size: large;
+    padding: 5px;
+    border: 1px solid grey;
+    margin: 3px;
+    border-radius: 3px;
+}
+
+.favourite-btn{
+    background-color: pink;;
+}
+
+.un-favourite-btn{
+    background-color: rgb(245, 17, 55);;
+}
+
+.cart-btn{
+    background-color: rgb(171, 247, 234);
+}
+
+.remove-cart-btn{
+    background-color: rgb(207, 226, 35);
+}
